@@ -4,6 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from conftest import driver
 import allure
+import time
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
 from locators.main_page_locators import MainPageLocators
@@ -101,7 +102,7 @@ class OrderPage(BasePage):
         self.set_comment(comment)
         self.click_order_scooter()
         self.click_yes_for_popup_do_you_want_place_order()
-        self.waiting_loading_page(OrderPageLocators.ORDER_REGISTER_XPATH)
+        time.sleep(5)
         self.waiting_loading_page(OrderPageLocators.BUTTON_WATCH_STATUS_XPATH)
         self.click_watch_status()
         self.waiting_loading_page(OrderPageLocators.BUTTON_ORDER_CANCEL_XPATH)
