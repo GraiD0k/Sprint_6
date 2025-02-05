@@ -1,0 +1,26 @@
+import allure
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
+from conftest import driver
+from pages.base_page import BasePage
+import time
+
+class MainPage(BasePage):
+    #Нажатие на вопрос
+    def __init__(self, driver):
+        super().__init__(driver)
+        self.xpath = None
+
+    def click_question(self,xpath_):
+        self.driver.find_element(*xpath_).click()
+    #Получение ответа
+    def receiving_text_answer (self,xpath_text_):
+        return self.driver.find_element(*xpath_text_).text
+    #Проверка текста ответа
+    def check_text_answers(self, xpath ,xpath_text,answer_text):
+        self.waiting_loading_page(xpath)
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+        self.waiting_loading_page(xpath)
+        self.click_question(xpath)
+        assert self.receiving_text_answer(xpath_text) == answer_text
