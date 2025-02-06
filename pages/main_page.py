@@ -4,13 +4,9 @@ from pages.base_page import BasePage
 
 class MainPage(BasePage):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.xpath = None
-
     @allure.step('Нажатие на вопрос')
-    def click_question(self,xpath_):
-        self.driver.find_element(*xpath_).click()
+    def click_question(self,xpath):
+        self.driver.find_element(*xpath).click()
     @allure.step('Получение ответа на вопрос')
     def receiving_text_answer (self,xpath_text_):
         return self.driver.find_element(*xpath_text_).text

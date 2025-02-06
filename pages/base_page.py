@@ -12,11 +12,6 @@ class BasePage:
     def waiting_loading_page(self,xpath):
         WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(xpath))
 
-    @allure.step('Нажимаем на кнопку Заказать')
-    def click_button_order(self):
-        self.waiting_loading_page(MainPageLocators.ORDER_BUTTON_XPATH)
-        self.driver.find_element(*MainPageLocators.ORDER_BUTTON_XPATH).click()
-        self.waiting_loading_page(OrderPageLocators.FIELD_NAME_XPATH)
 
     @allure.step('Переключение на новую вкладку')
     def switch_to_new_tab(self):

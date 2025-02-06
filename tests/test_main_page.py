@@ -21,7 +21,7 @@ class TestMainPage:
                               ids =["First Question Test Case", "Second Question Test Case","Third Question Test Case","Fourth Question Test Case","Fifth Question Test Case","Sixth Question Test Case","Seventh Question Test Case","Eighth Question Test Case"])
 
     @allure.title('Проверка ответа при клике на вопрос')
-    def test_check_text_answer(self, xpath, xpath_text, answer_text, driver):
+    def test_check_text_answer(self, xpath, xpath_text, answer_text,driver):
         driver.get(Urls.URL_BASE)
         main_page = MainPage(driver)
         main_page.check_text_answers(xpath, xpath_text, answer_text)
