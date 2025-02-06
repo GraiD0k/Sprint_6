@@ -18,6 +18,7 @@ class TestOrderPage:
         driver.get(Urls.URL_BASE)
         order_page = OrderPage(driver)
         order_page.click_button_order()
+        order_page.loading_page_order()
         order_page.waiting_loading_page(OrderPageLocators.FIELD_NAME_XPATH)
         order_page.set_abonent_data_step1(step1['name'],step1['last_name'],step1['address'],step1['phone'])
         order_page.assert_go_next_step()

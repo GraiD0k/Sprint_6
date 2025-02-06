@@ -3,7 +3,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from conftest import driver
 from locators.main_page_locators import MainPageLocators
-from locators.order_page_locators import OrderPageLocators
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
@@ -22,3 +21,8 @@ class BasePage:
     def assert_current_url(self, url):
         WebDriverWait(self.driver, 5).until(expected_conditions.url_to_be(url))
         assert self.driver.current_url == url
+
+    @allure.step('Нажимаем кнопку заказать')
+    def click_button_order(self):
+        self.waiting_loading_page(MainPageLocators.ORDER_BUTTON_XPATH)
+        self.driver.find_element(*MainPageLocators.ORDER_BUTTON_XPATH).click()
