@@ -18,3 +18,5 @@ class MainPageLocators:
     EIGHTH_QUESTION_XPATH = (By.XPATH,'//div[@class="accordion__item"][8]')
     EIGHTH_ANSWER_XPATH = (By.XPATH,'//div [@aria-labelledby="accordion__heading-7"]/p')
     ORDER_BUTTON_XPATH = (By.XPATH,'//button [@class="Button_Button__ra12g"]')
+    LOGO_SCOOTER_XPATH = [By.XPATH, '//a[contains(@class, "Header_LogoScooter")]']
+    LOGO_YANDEX_XPATH = [By.CLASS_NAME, 'Header_LogoYandex__3TSOI']

@@ -1,6 +1,6 @@
 import allure
 from pages.base_page import BasePage
-
+from locators.main_page_locators import MainPageLocators
 class MainPage(BasePage):
 
     @allure.step('Нажатие на вопрос')
@@ -16,3 +16,13 @@ class MainPage(BasePage):
         self.waiting_loading_page(xpath)
         self.click_question(xpath)
         assert self.receiving_text_answer(xpath_text) == answer_text
+
+    @allure.step('Нажатие на логотип "Самоката"')
+    def click_scooter_logo(self):
+        self.driver.find_element(*MainPageLocators.LOGO_SCOOTER_XPATH).click()
+
+    @allure.step('Нажатие на логотип "Яндекс"')
+    def click_yandex_logo(self):
+        self.waiting_loading_page(MainPageLocators.LOGO_YANDEX_XPATH)
+        self.driver.find_element(*MainPageLocators.LOGO_YANDEX_XPATH).click()
+

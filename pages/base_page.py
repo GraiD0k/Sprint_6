@@ -19,7 +19,7 @@ class BasePage:
 
     @allure.step('Проверка адреса страницы')
     def assert_current_url(self, url):
-        WebDriverWait(self.driver, 5).until(expected_conditions.url_to_be(url))
+        WebDriverWait(self.driver, 10).until(expected_conditions.url_to_be(url))
         assert self.driver.current_url == url
 
     @allure.step('Нажимаем кнопку заказать')

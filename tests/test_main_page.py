@@ -25,3 +25,19 @@ class TestMainPage:
         driver.get(Urls.URL_BASE)
         main_page = MainPage(driver)
         main_page.check_text_answers(xpath, xpath_text, answer_text)
+
+    @allure.title('Проверка перехода на главную страницу Самоката')
+    def test_check_go_home(self, driver):
+        driver.get(Urls.URL_BASE)
+        main_page = MainPage(driver)
+        main_page.click_button_order()
+        main_page.click_scooter_logo()
+        main_page.assert_current_url(Urls.URL_BASE)
+
+    @allure.title('Проверка перехода с главной главную страницу Дзена')
+    def test_passage_to_dzen(self, driver):
+        driver.get(Urls.URL_BASE)
+        main_page = MainPage(driver)
+        main_page.click_yandex_logo()
+        main_page.switch_to_new_tab()
+        main_page.assert_current_url(Urls.URL_DZEN)
