@@ -2,7 +2,6 @@ import allure
 import time
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
-from locators.main_page_locators import MainPageLocators
 
 class OrderPage(BasePage):
     @allure.step('Ожидаем формы для оформления заказа')

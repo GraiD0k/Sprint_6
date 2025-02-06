@@ -4,15 +4,13 @@ import pytest
 from data.urls import Urls
 from conftest import driver
 from locators.order_page_locators import OrderPageLocators
+from data.data import MainPageData
 
 class TestOrderPage:
     TEXT_SUCCES_CREATE_ORDER = 'Отменить заказ'
 
     @pytest.mark.parametrize ('step1, step2', [
-                [{'name': 'Тестировщик', 'last_name': 'Автоматизаторов', 'address': 'Москва, Самокатная, д69', 'phone': '+79006084444'},
-                {'comment': 'Комментарий для курьера номер 1'}],
-                [{'name': 'Автоматизатор', 'last_name': 'Тестировщик', 'address': 'Москва, Тестовая, д6', 'phone': '+7960902020'},
-                {'comment': 'Комментарий для курьера номер 2'}]] , ids =["First Order Test Case", "Second Order Test Case"])
+                MainPageData.ORDER_DATA_1, MainPageData.ORDER_DATA_2] , ids =["First Order Test Case", "Second Order Test Case"])
     @allure.title('Проверка заказа самоката')
     def test_order_scooter(self, step1, step2, driver):
         driver.get(Urls.URL_BASE)
