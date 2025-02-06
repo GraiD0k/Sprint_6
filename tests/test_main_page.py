@@ -1,9 +1,6 @@
 from conftest import driver
 import allure
 import pytest
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
 from pages.main_page import MainPage
 from locators.main_page_locators import MainPageLocators
 from  data.data import MainPageData
