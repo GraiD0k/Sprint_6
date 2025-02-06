@@ -1,8 +1,7 @@
 import allure
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
+
 class OrderPage(BasePage):
     @allure.step('Ожидаем формы для оформления заказа')
     def loading_page_order(self,driver):
