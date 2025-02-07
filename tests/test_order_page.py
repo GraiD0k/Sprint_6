@@ -3,7 +3,6 @@ import allure
 import pytest
 from data.urls import Urls
 from conftest import driver
-from locators.order_page_locators import OrderPageLocators
 from data.data import MainPageData
 
 class TestOrderPage:
@@ -15,10 +14,10 @@ class TestOrderPage:
     def test_order_scooter(self, step1, step2, driver):
         driver.get(Urls.URL_BASE)
         order_page = OrderPage(driver)
-        order_page.click_button_order(driver)
-        order_page.loading_page_order(driver)
-        order_page.waiting_loading_page(OrderPageLocators.FIELD_NAME_XPATH,driver)
-        order_page.set_abonent_data_step1(step1['name'],step1['last_name'],step1['address'],step1['phone'],driver)
-        order_page.assert_go_next_step(driver)
-        order_page.set_abonent_data_step2(step2['comment'],driver)
+        order_page.click_button_order()
+        order_page.loading_page_order()
+        order_page.waiting_loading_field_name()
+        order_page.set_abonent_data_step1(step1['name'],step1['last_name'],step1['address'],step1['phone'])
+        order_page.assert_go_next_step()
+        order_page.set_abonent_data_step2(step2['comment'])
         order_page.assert_succes_create_order(self.TEXT_SUCCES_CREATE_ORDER)
